@@ -21,7 +21,8 @@ namespace RentalKendaraan_070.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customer.ToListAsync());
+            var rentalkendaraanContext = _context.Customer.Include(c => c.IdGenderNavigation);
+            return View(await rentalkendaraanContext.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -33,6 +34,7 @@ namespace RentalKendaraan_070.Controllers
             }
 
             var customer = await _context.Customer
+                .Include(c => c.IdGenderNavigation)
                 .FirstOrDefaultAsync(m => m.IdCustomer == id);
             if (customer == null)
             {
@@ -45,6 +47,7 @@ namespace RentalKendaraan_070.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
+            ViewData["IdGender"] = new SelectList(_context.Gender, "IdGender", "IdGender");
             return View();
         }
 
@@ -61,6 +64,7 @@ namespace RentalKendaraan_070.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdGender"] = new SelectList(_context.Gender, "IdGender", "IdGender", customer.IdGender);
             return View(customer);
         }
 
@@ -77,6 +81,7 @@ namespace RentalKendaraan_070.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdGender"] = new SelectList(_context.Gender, "IdGender", "IdGender", customer.IdGender);
             return View(customer);
         }
 
@@ -112,6 +117,7 @@ namespace RentalKendaraan_070.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdGender"] = new SelectList(_context.Gender, "IdGender", "IdGender", customer.IdGender);
             return View(customer);
         }
 
@@ -124,6 +130,7 @@ namespace RentalKendaraan_070.Controllers
             }
 
             var customer = await _context.Customer
+                .Include(c => c.IdGenderNavigation)
                 .FirstOrDefaultAsync(m => m.IdCustomer == id);
             if (customer == null)
             {

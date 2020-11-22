@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace RentalKendaraan_070.Models
 {
     public partial class Gender
     {
-        public int IdGender { get; set; }
+        public Gender()
+        {
+            Customer = new HashSet<Customer>();
+        }
 
-        [Required(ErrorMessage = "Nama Gender tidak boleh kosong")]
+        public int IdGender { get; set; }
         public string NamaGender { get; set; }
+
+        public ICollection<Customer> Customer { get; set; }
     }
 }
