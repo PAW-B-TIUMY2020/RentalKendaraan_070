@@ -19,7 +19,7 @@ namespace RentalKendaraan_070.Controllers
         }
 
         // GET: Kendaraans
-        public async Task<IActionResult> Index(string ktsd, string searchString)
+        public async Task<IActionResult> Index(string ktsd, string searchString, string sortOrder, string currentFilter, int? pageNumber)
         {
             //buat list menyimpan ketersediaan
             var ktsdList = new List<string>();
@@ -46,8 +46,36 @@ namespace RentalKendaraan_070.Controllers
             {
                 menu = menu.Where(x => x.Ketersediaan == ktsd);
             }
+            //mmebuat pagedlist
+            ViewData["CurrentShort"] = sortOrder;
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
+
+            //definisi jumlah data pada halaman
+            int pageSize = 5;
+
+            //untuk sorting
+            ViewData["NamaSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_decs" : "";
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    menu = menu.OrderByDescending(s => s.NamaKendaraan);
+                    break;
+                default: //name ascending
+                    menu = menu.OrderBy(s => s.NamaKendaraan);
+                    break;
+            }
+
+            return View(await PaginatedList<Kendaraan>.CreateAsync(menu.AsNoTracking(), pageNumber ?? 1, pageSize));
+
             
-            return View(await menu.ToListAsync());
         }
 
         // GET: Kendaraans/Details/5
