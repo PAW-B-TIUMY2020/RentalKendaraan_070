@@ -19,7 +19,8 @@ namespace RentalKendaraan_070.Models
         public DateTime? TglPeminjaman { get; set; }
 
         [DisplayName("Biaya")]
-        [RegularExpression("^[0-9]^$", ErrorMessage = "Hanya Boleh Diisi oleh Angka!")]
+        [Required(ErrorMessage = "Biaya tidak boleh kosong")]
+        //[RegularExpression("^[0-9]*$", ErrorMessage = "Hanya Boleh Diisi oleh Angka!")]
         public int? Biaya { get; set; }
 
         [DisplayName("Costumer")]

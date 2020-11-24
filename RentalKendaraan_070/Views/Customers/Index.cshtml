@@ -4,11 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Tambahkan Data Kendarann</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Tambahkan Data Baru</a>
 </p>
+
+@using (Html.BeginForm("Index", "Customers", FormMethod.Get))
+{
+    <p>
+        NamaCustomer: @Html.DropDownList("ktsd", "Pilih Nama")
+        Cari Data : @Html.TextBox("searchString")
+        <input type="submit" value="Filter"/>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>

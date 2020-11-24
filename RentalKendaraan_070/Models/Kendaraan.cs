@@ -23,7 +23,7 @@ namespace RentalKendaraan_070.Models
         public string NoStnk { get; set; }
         public int? IdJenisKendaraan { get; set; }
 
-        [RegularExpression("^[0-9]*$", ErrorMessage = "Hanya boleh diisi angka")]
+        [Required(ErrorMessage = "Ketersediaan tidak boleh kosong!")]
         public string Ketersediaan { get; set; }
 
         public JenisKendaraan IdJenisKendaraanNavigation { get; set; }
