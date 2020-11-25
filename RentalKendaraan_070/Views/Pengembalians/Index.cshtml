@@ -22,16 +22,18 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TglPengembalian)
+                @*@Html.DisplayName("Tgl Pengembalian")*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tanggal Pengembalian</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Denda)
+                @Html.DisplayName("Denda")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdKondisiNavigation)
+                @*@Html.DisplayName("Nama Kondisi")*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nama Kondisi</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPeminjamanNavigation)
+                @Html.DisplayName("Tgl Peminjaman")
             </th>
             <th></th>
         </tr>
@@ -47,10 +49,10 @@
                     @Html.DisplayFor(modelItem => item.Denda)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdKondisiNavigation.IdKondisi)
+                    @Html.DisplayFor(modelItem => item.IdKondisiNavigation.NamaKondisi)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdPeminjamanNavigation.IdPeminjaman)
+                    @Html.DisplayFor(modelItem => item.IdPeminjamanNavigation.TglPeminjaman)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdPengembalian">Edit</a> |

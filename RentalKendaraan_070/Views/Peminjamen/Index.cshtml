@@ -23,28 +23,20 @@
         <tr>
             <th>
                 @*@Html.DisplayName("Tanggal Peminjaman")*@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["DateDortParm"]"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
-                    Tanggal Peminjaman
-                </a>
+                <a asp-action="Index"asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Tanggal Peminjaman</a>
             </th>
             <th>
-                @*@Html.DisplayName("Biaya")*@
+                @Html.DisplayName("Biaya")
             </th>
             <th>
                 @*@Html.DisplayName("Nama Customer")*@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["NameSortParm"]"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
-                    Nama Customer
-                </a>
+                <a asp-action="Index"asp-route-sortOrder="@ViewData["NameSortParm"]"asp-route-currentFilter="@ViewData["CurrentFilter"]">Nama Customer</a>
             </th>
             <th>
-                @*@Html.DisplayName("IdJaminanNavigation")*@
+                @Html.DisplayName("Nama Jaminan")
             </th>
             <th>
-                @*@Html.DisplayName("IdKendaraanNavigation")*@
+                @Html.DisplayName("Nama kendaraan")
             </th>
             <th></th>
         </tr>
@@ -60,13 +52,13 @@
                     @Html.DisplayFor(modelItem => item.Biaya)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdCustomerNavigation.IdCustomer)
+                    @Html.DisplayFor(modelItem => item.IdCustomerNavigation.NamaCustomer)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdJaminanNavigation.IdJaminan)
+                    @Html.DisplayFor(modelItem => item.IdJaminanNavigation.NamaJaminan)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.IdKendaraan)
+                    @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.NamaKendaraan)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdPeminjaman">

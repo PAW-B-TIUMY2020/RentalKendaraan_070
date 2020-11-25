@@ -22,7 +22,12 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NamaGender)
+                @*@Html.DisplayName("Nama Gender")*@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Nama Gender
+                </a>
             </th>
             <th></th>
         </tr>

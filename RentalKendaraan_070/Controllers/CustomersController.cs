@@ -63,7 +63,7 @@ namespace RentalKendaraan_070.Controllers
             int pageSize = 5;
 
             //untuk sorting
-            ViewData["NamaSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_decs" : "";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             switch (sortOrder)
             {
                 case "name_desc":

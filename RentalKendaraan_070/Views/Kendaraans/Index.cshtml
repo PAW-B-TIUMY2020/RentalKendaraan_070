@@ -29,16 +29,16 @@
                 </a>
             </th>
             <th>
-                @*@Html.DisplayName("No Polisi")*@
+                @Html.DisplayName("No Polisi")
             </th>
             <th>
-                @*@Html.DisplayName("No Stnk")*@
+                @Html.DisplayName("No Stnk")
             </th>
             <th>
-                @*@Html.DisplayName("Ketersediaan")*@
+                @Html.DisplayName("Ketersediaan")
             </th>
             <th>
-                @*@Html.DisplayName("IdJenisKendaraanNavigation")*@
+                @Html.DisplayName("Jenis Kendaraan")
             </th>
             <th></th>
         </tr>
@@ -60,7 +60,7 @@
                     @Html.DisplayFor(modelItem => item.Ketersediaan)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdJenisKendaraanNavigation.IdJenisKendaraan)
+                    @Html.DisplayFor(modelItem => item.IdJenisKendaraanNavigation.NamaJenisKendaraan)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.IdKendaraan">Edit</a> |

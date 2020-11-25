@@ -22,7 +22,8 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NamaKondisi)
+                @*@Html.DisplayName("Nama Kondisi")*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Nama Kondisi</a>
             </th>
             <th></th>
         </tr>
