@@ -37,8 +37,7 @@ namespace RentalKendaraan_070.Controllers
             //untuk search
             if(!string.IsNullOrEmpty(searchString))
             {
-                menu = menu.Where(s => s.NoPolisi.Contains(searchString) || s.NamaKendaraan.Contains(searchString)
-                || s.NoPolisi.Contains(searchString));
+                menu = menu.Where(s => s.NoPolisi.Contains(searchString) || s.NamaKendaraan.Contains(searchString)|| s.NoPolisi.Contains(searchString));
             }
 
             //untuk memilih dropdownlist ketersedian
